@@ -1,0 +1,61 @@
+// === You Are An Idiot Bouncer ===
+// Chaos level: 🍌💥
+// Use responsibly. Or prepare for maximum trolling energy.
+
+(function () {
+    // Sound setup
+    const audio = new Audio("https://www.myinstants.com/media/sounds/you-are-an-idiot.mp3");
+    audio.loop = true;
+    audio.volume = 0.7;
+    audio.play().catch(e => console.warn("Audio blocked by browser. Click somewhere to allow."));
+
+    // Image setup
+    const imageSrc = "https://i.ebayimg.com/images/g/mYwAAOSwISVhfxz1/s-l1200.png";
+    const imageCount = 10;
+    const bounceImages = [];
+
+    // Create style to remove overflow restrictions
+    const style = document.createElement("style");
+    style.innerHTML = `body { overflow: hidden !important; }`;
+    document.head.appendChild(style);
+
+    // Create images and movement logic
+    for (let i = 0; i < imageCount; i++) {
+        const img = document.createElement("img");
+        img.src = imageSrc;
+        img.style.position = "fixed";
+        img.style.width = "100px";
+        img.style.zIndex = "999999";
+        img.style.left = Math.random() * window.innerWidth + "px";
+        img.style.top = Math.random() * window.innerHeight + "px";
+        img.style.pointerEvents = "none";
+        document.body.appendChild(img);
+
+        bounceImages.push({
+            el: img,
+            x: Math.random() * window.innerWidth,
+            y: Math.random() * window.innerHeight,
+            dx: (Math.random() - 0.5) * 8,
+            dy: (Math.random() - 0.5) * 8,
+        });
+    }
+
+    function animate() {
+        bounceImages.forEach(img => {
+            img.x += img.dx;
+            img.y += img.dy;
+
+            if (img.x < 0 || img.x > window.innerWidth - 100) img.dx *= -1;
+            if (img.y < 0 || img.y > window.innerHeight - 100) img.dy *= -1;
+
+            img.el.style.left = img.x + "px";
+            img.el.style.top = img.y + "px";
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    console.log("😈 'You Are An Idiot' script is running. May chaos reign.");
+})();
