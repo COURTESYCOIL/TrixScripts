@@ -1,0 +1,26 @@
+{
+  "addons": [
+    {
+      "id": "trix_ai",
+      "name": "TriX AI",
+      "description": "AI assistant with screenshot, inspection, and heuristic analysis. No external APIs or keys needed.",
+      "versions": [
+        {
+          "version": "1.2.2 (Standalone)",
+          "url": "https://raw.githubusercontent.com/COURTESYCOIL/TrixScripts/refs/heads/main/TriX%20AI"
+        }
+      ]
+    },
+    {
+      "id": "ws_logger",
+      "name": "WebSocket Logger",
+      "description": "Intercepts and logs all WebSocket traffic for network protocol analysis.",
+      "versions": [
+        {
+          "version": "1.2.0",
+          "url": "https://raw.githubusercontent.com/COURTESYCOIL/TrixScripts/refs/heads/main/WebSocket%20Logger"
+        }
+      ]
+    }
+  ]
+}
